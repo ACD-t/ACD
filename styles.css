@@ -94,9 +94,23 @@ h1, h2, p, figure { margin: 0; }
   opacity: 0.4;
 }
 
-.preview-card > span {
+.preview-card::after {
   position: absolute;
   z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 253, 253, 0) 42%,
+    rgba(253, 253, 253, 0.72) 76%,
+    var(--light) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.preview-card > span {
+  position: absolute;
+  z-index: 2;
   right: 10px;
   bottom: 12px;
   left: 10px;
