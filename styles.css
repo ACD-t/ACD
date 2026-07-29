@@ -83,8 +83,20 @@ h1, h2, p, figure { margin: 0; }
   border-radius: 14px;
   background: var(--light);
 }
+.preview-card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: var(--preview-image);
+  background-position: center;
+  background-size: cover;
+  content: "";
+  opacity: 0.4;
+}
+
 .preview-card > span {
   position: absolute;
+  z-index: 1;
   right: 10px;
   bottom: 12px;
   left: 10px;
