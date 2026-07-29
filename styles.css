@@ -139,7 +139,7 @@ figure {
   background: var(--card);
 }
 
-.lesson-card-list a {
+.lesson-card-list .lesson-link {
   display: block;
   width: 100%;
   padding: 0;
@@ -153,10 +153,19 @@ figure {
   text-overflow: ellipsis;
 }
 
-.lesson-card-list a + a {
+.lesson-card-list .lesson-link + .lesson-link {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 2px solid #d9d9d9;
+}
+
+.lesson-link.is-disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.lesson-link.is-published {
+  opacity: 1;
 }
 
 .back-link {
@@ -217,7 +226,7 @@ figure {
 
   .pill,
   .lesson-group h2,
-  .lesson-card-list a,
+  .lesson-card-list .lesson-link,
   .back-link,
   .lesson-content h2 {
     font-size: 23px;
