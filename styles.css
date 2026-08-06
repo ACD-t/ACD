@@ -232,15 +232,10 @@ body.story-open { overflow: hidden; }
 
 .sphere-gallery {
   display: flex;
-  width: calc(100% + 19px);
+  flex-direction: column;
+  width: 100%;
   gap: 10px;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
 }
-
-.sphere-gallery::-webkit-scrollbar { display: none; }
 
 .sphere-gallery-card,
 .story-stage,
@@ -253,13 +248,12 @@ body.story-open { overflow: hidden; }
 }
 
 .sphere-gallery-card {
-  flex: 0 0 354px;
-  width: 354px;
+  flex: 0 0 auto;
+  width: 100%;
   height: 460px;
   overflow: hidden;
   border-radius: 14px;
   background: var(--light);
-  scroll-snap-align: start;
 }
 
 .sphere-gallery-card img,
@@ -357,15 +351,6 @@ body.story-open { overflow: hidden; }
 }
 
 @media (max-width: 370px) {
-  .sphere-gallery {
-    width: calc(100% + 16px);
-  }
-
-  .sphere-gallery-card {
-    flex-basis: calc(100vw - 32px);
-    width: calc(100vw - 32px);
-  }
-
   .story-viewer-panel {
     padding-right: 16px;
     padding-left: 16px;
