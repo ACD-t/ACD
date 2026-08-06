@@ -274,10 +274,14 @@ body.story-open { overflow: hidden; }
 }
 
 .sphere-gallery-card:focus-visible,
-.story-stage:focus-visible,
-.story-close:focus-visible {
+.story-stage:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 3px;
+}
+
+.story-close:focus,
+.story-close:focus-visible {
+  outline: none;
 }
 
 .story-viewer[hidden] { display: none; }
