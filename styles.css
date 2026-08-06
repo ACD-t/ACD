@@ -155,10 +155,13 @@ h1, h2, p, figure { margin: 0; }
   border-top: 2px solid var(--divider);
 }
 .catalogue-link.is-disabled {
+  color: rgba(34, 34, 34, 0.3);
   cursor: default;
-  opacity: 0.3;
 }
-.catalogue-link.is-published { opacity: 1; }
+
+.catalogue-link.is-published {
+  color: var(--ink);
+}
 
 .back-link {
   position: relative;
