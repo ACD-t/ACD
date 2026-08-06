@@ -206,3 +206,168 @@ h1, h2, p, figure { margin: 0; }
   .screen { padding-right: 16px; padding-left: 16px; }
   .preview-strip, .media-strip { width: calc(100% + 16px); }
 }
+
+/* Sphere lesson — Figma 2670 */
+body.story-open { overflow: hidden; }
+
+.sphere-lesson-screen {
+  width: min(100%, 393px);
+  padding-bottom: 20px;
+}
+
+.sphere-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.lesson-meta {
+  color: rgba(34, 34, 34, 0.3);
+  font-size: 22px;
+  font-weight: 510;
+  line-height: 20px;
+  letter-spacing: -0.88px;
+}
+
+.sphere-gallery {
+  display: flex;
+  width: calc(100% + 19px);
+  gap: 10px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.sphere-gallery::-webkit-scrollbar { display: none; }
+
+.sphere-gallery-card,
+.story-stage,
+.story-close {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sphere-gallery-card {
+  flex: 0 0 354px;
+  width: 354px;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--light);
+  scroll-snap-align: start;
+}
+
+.sphere-gallery-card img,
+.story-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sphere-gallery-card:focus-visible,
+.story-stage:focus-visible,
+.story-close:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.story-viewer[hidden] { display: none; }
+
+.story-viewer {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(34, 34, 34, 0.18);
+}
+
+.story-viewer-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100%, 393px);
+  min-height: 100dvh;
+  padding: 20px 19px 28px 20px;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.story-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -1.2px;
+}
+
+.story-close {
+  flex: 0 0 36.25px;
+  width: 36.25px;
+  height: 36.25px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.story-close img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.story-progress {
+  display: flex;
+  width: 100%;
+  height: 5px;
+  gap: 2px;
+}
+
+.story-progress-segment {
+  flex: 1 1 0;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--light);
+}
+
+.story-progress-segment.is-current,
+.story-progress-segment.is-complete {
+  background: var(--ink);
+}
+
+.story-stage {
+  flex: 0 0 505px;
+  width: 100%;
+  height: 505px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--light);
+  touch-action: pan-y;
+}
+
+@media (max-width: 370px) {
+  .sphere-gallery {
+    width: calc(100% + 16px);
+  }
+
+  .sphere-gallery-card {
+    flex-basis: calc(100vw - 32px);
+    width: calc(100vw - 32px);
+  }
+
+  .story-viewer-panel {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
