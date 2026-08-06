@@ -94,6 +94,10 @@ h1, h2, p, figure { margin: 0; }
   opacity: 0.4;
 }
 
+.index-screen .preview-card::before {
+  opacity: 1;
+}
+
 .preview-card::after {
   position: absolute;
   z-index: 1;
