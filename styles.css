@@ -91,10 +91,6 @@ h1, h2, p, figure { margin: 0; }
   background-position: center;
   background-size: cover;
   content: "";
-  opacity: 0.4;
-}
-
-.index-screen .preview-card::before {
   opacity: 1;
 }
 
@@ -132,7 +128,13 @@ h1, h2, p, figure { margin: 0; }
   color: var(--sand);
   font: inherit;
 }
-.preview-card.is-disabled { opacity: 0.3; }
+.preview-card.is-disabled {
+  cursor: default;
+}
+
+.preview-card.is-disabled > span {
+  color: rgba(34, 34, 34, 0.3);
+}
 
 .catalogue-card {
   display: flex;
