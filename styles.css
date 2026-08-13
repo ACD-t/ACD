@@ -382,7 +382,18 @@ body.story-open { overflow: hidden; }
   line-height: 30px;
 }
 
+.materials-lesson-screen .sphere-gallery-card {
+  height: auto;
+  aspect-ratio: 420 / 595;
+}
+
 .materials-lesson-screen .sphere-gallery-card img,
 .materials-lesson-screen + .story-viewer .story-stage img {
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.materials-lesson-screen + .story-viewer .story-stage {
+  flex-basis: auto;
+  height: auto;
+  aspect-ratio: 420 / 595;
 }
