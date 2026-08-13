@@ -91,29 +91,8 @@
         let current = 0;
         let previousFocus = null;
         let pointerStart = null;
-        let storyZoom = 1;
-        let pinchDistance = null;
-        let suppressStageClick = false;
-        const activePointers = new Map();
-
-        const setStoryZoom = (value) => {
-          storyZoom = Math.min(4, Math.max(1, value));
-          image.style.transform = "scale(" + storyZoom + ")";
-          stage.classList.toggle("is-zoomed", storyZoom > 1);
-          stage.setAttribute("aria-label", storyZoom > 1
-            ? "Увеличенное изображение. Сведите пальцы или нажмите 0 для сброса масштаба"
-            : "Перейти к следующему изображению");
-        };
-
-        const resetStoryZoom = () => {
-          activePointers.clear();
-          pinchDistance = null;
-          suppressStageClick = false;
-          setStoryZoom(1);
-        };
 
         const render = () => {
-          resetStoryZoom();
           image.src = sources[current];
           image.alt = "Урок «Шар», изображение " + (current + 1);
           progressBar.setAttribute("aria-valuenow", String(current + 1));
@@ -159,65 +138,26 @@
         });
 
         stage.addEventListener("click", (event) => {
-          if (suppressStageClick) {
-            suppressStageClick = false;
-            return;
-          }
-          if (storyZoom > 1) return;
           const bounds = stage.getBoundingClientRect();
           move(event.clientX < bounds.left + bounds.width * 0.35 ? -1 : 1);
         });
 
-        stage.addEventListener("wheel", (event) => {
-          event.preventDefault();
-          suppressStageClick = true;
-          setStoryZoom(storyZoom * (event.deltaY < 0 ? 1.15 : 0.87));
-        }, { passive: false });
-
         stage.addEventListener("pointerdown", (event) => {
-          activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-          if (activePointers.size === 1) pointerStart = event.clientX;
-          if (activePointers.size === 2) {
-            const points = Array.from(activePointers.values());
-            pinchDistance = Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
-            suppressStageClick = true;
-          }
+          pointerStart = event.clientX;
         });
 
-        stage.addEventListener("pointermove", (event) => {
-          if (!activePointers.has(event.pointerId)) return;
-          activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-          if (activePointers.size !== 2) return;
-          const points = Array.from(activePointers.values());
-          const distance = Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
-          if (pinchDistance) setStoryZoom(storyZoom * distance / pinchDistance);
-          pinchDistance = distance;
-          suppressStageClick = true;
-        });
-
-        const finishPointer = (event) => {
-          activePointers.delete(event.pointerId);
-          if (activePointers.size < 2) pinchDistance = null;
-          if (storyZoom > 1 || suppressStageClick || pointerStart === null) {
-            pointerStart = null;
-            return;
-          }
+        stage.addEventListener("pointerup", (event) => {
+          if (pointerStart === null) return;
           const distance = event.clientX - pointerStart;
           pointerStart = null;
           if (Math.abs(distance) > 40) move(distance < 0 ? 1 : -1);
-        };
-
-        stage.addEventListener("pointerup", finishPointer);
-        stage.addEventListener("pointercancel", finishPointer);
+        });
 
         document.addEventListener("keydown", (event) => {
           if (viewer.hidden) return;
           if (event.key === "Escape") closeStory();
           if (event.key === "ArrowRight") move(1);
           if (event.key === "ArrowLeft") move(-1);
-          if (event.key === "+" || event.key === "=") setStoryZoom(storyZoom + 0.25);
-          if (event.key === "-") setStoryZoom(storyZoom - 0.25);
-          if (event.key === "0") resetStoryZoom();
           if (event.key === "Tab" && !panel.contains(document.activeElement)) {
             event.preventDefault();
             closeButton.focus();
