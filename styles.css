@@ -369,3 +369,15 @@ body.story-open { overflow: hidden; }
     padding-left: 16px;
   }
 }
+
+.materials-lesson-screen .lesson-title {
+  max-width: 100%;
+  font-size: 36px;
+  line-height: 38px;
+}
+
+.materials-lesson-screen + .story-viewer .story-header h2 {
+  max-width: calc(100% - 52px);
+  font-size: 28px;
+  line-height: 30px;
+}
