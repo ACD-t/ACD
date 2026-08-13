@@ -75,8 +75,29 @@
         let current = 0;
         let previousFocus = null;
         let pointerStart = null;
+        let storyZoom = 1;
+        let pinchDistance = null;
+        let suppressStageClick = false;
+        const activePointers = new Map();
+
+        const setStoryZoom = (value) => {
+          storyZoom = Math.min(4, Math.max(1, value));
+          image.style.transform = "scale(" + storyZoom + ")";
+          stage.classList.toggle("is-zoomed", storyZoom > 1);
+          stage.setAttribute("aria-label", storyZoom > 1
+            ? "Увеличенное изображение. Сведите пальцы или нажмите 0 для сброса масштаба"
+            : "Перейти к следующему изображению");
+        };
+
+        const resetStoryZoom = () => {
+          activePointers.clear();
+          pinchDistance = null;
+          suppressStageClick = false;
+          setStoryZoom(1);
+        };
 
         const render = () => {
+          resetStoryZoom();
           image.src = sources[current];
           image.alt = "Урок «" + lessonTitle + "», изображение " + (current + 1);
           progressBar.setAttribute("aria-valuenow", String(current + 1));
@@ -135,6 +156,9 @@
           if (event.key === "Escape") closeStory();
           if (event.key === "ArrowRight") move(1);
           if (event.key === "ArrowLeft") move(-1);
+          if (event.key === "+" || event.key === "=") setStoryZoom(storyZoom + 0.25);
+          if (event.key === "-") setStoryZoom(storyZoom - 0.25);
+          if (event.key === "0") resetStoryZoom();
           if (event.key === "Tab" && !panel.contains(document.activeElement)) {
             event.preventDefault();
             closeButton.focus();
