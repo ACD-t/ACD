@@ -389,7 +389,9 @@ body.story-open { overflow: hidden; }
 
 .materials-lesson-screen .sphere-gallery-card img,
 .materials-lesson-screen + .story-viewer .story-stage img {
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .materials-lesson-screen + .story-viewer .story-stage {
