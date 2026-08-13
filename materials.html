@@ -139,18 +139,56 @@
           if (event.target === viewer) closeStory();
         });
         stage.addEventListener("click", (event) => {
+          if (suppressStageClick) {
+            suppressStageClick = false;
+            return;
+          }
+          if (storyZoom > 1) return;
           const bounds = stage.getBoundingClientRect();
           move(event.clientX < bounds.left + bounds.width * 0.35 ? -1 : 1);
         });
+
+        stage.addEventListener("wheel", (event) => {
+          event.preventDefault();
+          suppressStageClick = true;
+          setStoryZoom(storyZoom * (event.deltaY < 0 ? 1.15 : 0.87));
+        }, { passive: false });
+
         stage.addEventListener("pointerdown", (event) => {
-          pointerStart = event.clientX;
+          activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+          if (activePointers.size === 1) pointerStart = event.clientX;
+          if (activePointers.size === 2) {
+            const points = Array.from(activePointers.values());
+            pinchDistance = Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
+            suppressStageClick = true;
+          }
         });
-        stage.addEventListener("pointerup", (event) => {
-          if (pointerStart === null) return;
+
+        stage.addEventListener("pointermove", (event) => {
+          if (!activePointers.has(event.pointerId)) return;
+          activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+          if (activePointers.size !== 2) return;
+          const points = Array.from(activePointers.values());
+          const distance = Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
+          if (pinchDistance) setStoryZoom(storyZoom * distance / pinchDistance);
+          pinchDistance = distance;
+          suppressStageClick = true;
+        });
+
+        const finishPointer = (event) => {
+          activePointers.delete(event.pointerId);
+          if (activePointers.size < 2) pinchDistance = null;
+          if (storyZoom > 1 || suppressStageClick || pointerStart === null) {
+            pointerStart = null;
+            return;
+          }
           const distance = event.clientX - pointerStart;
           pointerStart = null;
           if (Math.abs(distance) > 40) move(distance < 0 ? 1 : -1);
-        });
+        };
+
+        stage.addEventListener("pointerup", finishPointer);
+        stage.addEventListener("pointercancel", finishPointer);
         document.addEventListener("keydown", (event) => {
           if (viewer.hidden) return;
           if (event.key === "Escape") closeStory();
