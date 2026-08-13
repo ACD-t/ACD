@@ -381,3 +381,8 @@ body.story-open { overflow: hidden; }
   font-size: 28px;
   line-height: 30px;
 }
+
+.materials-lesson-screen .sphere-gallery-card img,
+.materials-lesson-screen + .story-viewer .story-stage img {
+  object-fit: cover;
+}
