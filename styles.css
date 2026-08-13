@@ -400,13 +400,3 @@ body.story-open { overflow: hidden; }
   aspect-ratio: 420 / 595;
 }
 
-.story-stage img {
-  transform-origin: center;
-  transition: transform 160ms ease-out;
-  will-change: transform;
-}
-
-.story-stage.is-zoomed {
-  cursor: zoom-out;
-  touch-action: none;
-}
