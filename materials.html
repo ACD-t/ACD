@@ -121,9 +121,11 @@
           const bounds = stage.getBoundingClientRect();
           move(event.clientX < bounds.left + bounds.width * 0.35 ? -1 : 1);
         });
+
         stage.addEventListener("pointerdown", (event) => {
           pointerStart = event.clientX;
         });
+
         stage.addEventListener("pointerup", (event) => {
           if (pointerStart === null) return;
           const distance = event.clientX - pointerStart;
