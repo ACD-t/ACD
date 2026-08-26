@@ -400,3 +400,83 @@ body.story-open { overflow: hidden; }
   aspect-ratio: 420 / 595;
 }
 
+
+
+/* Caption lesson: image and text form one card */
+.caption-lesson-screen .lesson-title {
+  max-width: 100%;
+  font-size: 36px;
+  line-height: 38px;
+}
+
+.caption-lesson-gallery {
+  gap: 14px;
+}
+
+.caption-lesson-card {
+  display: block;
+  height: auto;
+  text-align: left;
+}
+
+.caption-lesson-card > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 945 / 831;
+  object-fit: contain;
+  background: var(--light);
+}
+
+.lesson-card-caption,
+.story-card-caption {
+  display: block;
+  color: var(--ink);
+  text-align: left;
+}
+
+.lesson-card-caption {
+  padding: 16px 16px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.38;
+  letter-spacing: -0.3px;
+}
+
+.lesson-card-caption p + p,
+.story-card-caption p + p {
+  margin-top: 12px;
+}
+
+.lesson-card-caption strong,
+.story-card-caption strong {
+  font-weight: 600;
+}
+
+.caption-story-panel .story-header h2 {
+  max-width: calc(100% - 52px);
+  font-size: 28px;
+  line-height: 30px;
+}
+
+.caption-story-stage {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  text-align: left;
+}
+
+.caption-story-stage > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 945 / 831;
+  object-fit: contain;
+  background: var(--light);
+}
+
+.story-card-caption {
+  padding: 16px 16px 20px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+}
