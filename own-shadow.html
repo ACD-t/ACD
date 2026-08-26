@@ -15,42 +15,42 @@
       </header>
 
       <section class="sphere-gallery caption-lesson-gallery" aria-label="Карточки урока">
-        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="0" aria-label="Открыть карточку 1 из 5">
+        <article class="sphere-gallery-card caption-lesson-card" role="button" tabindex="0" data-story-index="0" aria-label="Открыть карточку 1 из 5">
           <img src="assets/Светотень/svetoten01.jpg" alt="Урок «Собственная тень», карточка 1">
           <div class="lesson-card-caption">
             <p>Поверхность освещается сильнее, когда свет падает более перпендикулярно.</p>
             <p>Несколько белых картонов ставятся к свету таким образом, чтобы первый из них был перпендикулярен к лучу, а второй, третий и последующие мало-помалу отклонялись бы от него. Последний же картон ставится по направлению луча света. Эта модель весьма ясно показывает постепенность изменения насыщенности теней.</p>
           </div>
-        </button>
-        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="1" aria-label="Открыть карточку 2 из 5">
+        </article>
+        <article class="sphere-gallery-card caption-lesson-card" role="button" tabindex="0" data-story-index="1" aria-label="Открыть карточку 2 из 5">
           <img src="assets/Светотень/svetoten02.jpg" alt="Урок «Собственная тень», карточка 2">
           <div class="lesson-card-caption">
             <p><strong>Местная (собственная) и падающая тени</strong> различаются между собой тем, что местная находится на самом предмете, а другая падает на него от постороннего тела.</p>
             <p>Куб, поставленный на столик. Местная тень будет на одной стороне его, если другая освещена, а падающая будет на столике.</p>
           </div>
-        </button>
-        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="2" aria-label="Открыть карточку 3 из 5">
+        </article>
+        <article class="sphere-gallery-card caption-lesson-card" role="button" tabindex="0" data-story-index="2" aria-label="Открыть карточку 3 из 5">
           <img src="assets/Светотень/svetoten03.jpg" alt="Урок «Собственная тень», карточка 3">
           <div class="lesson-card-caption">
             <p><strong>Полутени</strong> затеняют предмет сильнее или слабее, сообразно величине того угла, под каким падает свет на поверхность предмета.</p>
             <p>Граненый белый конус, поставленный к свету.</p>
           </div>
-        </button>
-        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="3" aria-label="Открыть карточку 4 из 5">
+        </article>
+        <article class="sphere-gallery-card caption-lesson-card" role="button" tabindex="0" data-story-index="3" aria-label="Открыть карточку 4 из 5">
           <img src="assets/Светотень/svetoten04.jpg" alt="Урок «Собственная тень», карточка 4">
           <div class="lesson-card-caption">
             <p><strong>Рефлекс или отраженный свет</strong> замечается, когда тело, находящееся в тени, получает слабое освещение от другого освещенного тела.</p>
             <p>Пример. К картону, находящемуся в тени, надо приближать другой, освещенный, тогда местная (собственная) тень первого сделается светлее. Итак совокупность освещения заключает в себе: свет, полутени, тени, рефлексы и падающую тень.</p>
           </div>
-        </button>
-        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="4" aria-label="Открыть карточку 5 из 5">
+        </article>
+        <article class="sphere-gallery-card caption-lesson-card" role="button" tabindex="0" data-story-index="4" aria-label="Открыть карточку 5 из 5">
           <img src="assets/Светотень/svetoten05.jpg" alt="Урок «Собственная тень», карточка 5">
           <div class="lesson-card-caption">
             <p>Освещение круглых тел изъясняется точно так же, как и освещение граненого конуса, если грани его будут постепенно уменьшаться, пока не сольются в одну поверхность.</p>
             <p>Тени на круглых телах гораздо уже, потому что рефлекс здесь не останавливается гранями, а распространяется далее.</p>
             <p>На круглых металлических полированных телах весьма ясно заметить можно игру света, теней и особенно рефлексов.</p>
           </div>
-        </button>
+        </article>
       </section>
     </main>
 
@@ -71,11 +71,11 @@
           <span class="story-progress-segment" data-progress-index="4"></span>
         </div>
 
-        <button class="story-stage caption-story-stage" type="button" aria-label="Перейти к следующей карточке">
+        <div class="story-stage caption-story-stage" role="button" tabindex="0" aria-label="Перейти к следующей карточке">
           <img id="story-image" src="assets/Светотень/svetoten01.jpg" alt="Урок «Собственная тень», карточка 1">
           <div class="story-card-caption" id="story-caption"><p>Поверхность освещается сильнее, когда свет падает более перпендикулярно.</p>
 <p>Несколько белых картонов ставятся к свету таким образом, чтобы первый из них был перпендикулярен к лучу, а второй, третий и последующие мало-помалу отклонялись бы от него. Последний же картон ставится по направлению луча света. Эта модель весьма ясно показывает постепенность изменения насыщенности теней.</p></div>
-        </button>
+        </div>
       </section>
     </div>
 
@@ -138,6 +138,12 @@
 
         slides.forEach((slide, index) => {
           slide.addEventListener("click", () => openStory(index));
+          slide.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openStory(index);
+            }
+          });
         });
 
         closeButton.addEventListener("click", closeStory);
@@ -166,6 +172,10 @@
           if (event.key === "Escape") closeStory();
           if (event.key === "ArrowRight") move(1);
           if (event.key === "ArrowLeft") move(-1);
+          if ((event.key === "Enter" || event.key === " ") && document.activeElement === stage) {
+            event.preventDefault();
+            move(1);
+          }
           if (event.key === "Tab" && !panel.contains(document.activeElement)) {
             event.preventDefault();
             closeButton.focus();
