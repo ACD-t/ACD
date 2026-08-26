@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Собственная тень — ACD</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="screen lesson-screen sphere-lesson-screen caption-lesson-screen" aria-label="Урок Собственная тень">
+      <a class="back-link" href="index.html" aria-label="Вернуться ко всем курсам">Все курсы</a>
+
+      <header class="sphere-title-block">
+        <h1 class="lesson-title">Собственная тень</h1>
+      </header>
+
+      <section class="sphere-gallery caption-lesson-gallery" aria-label="Карточки урока">
+        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="0" aria-label="Открыть карточку 1 из 5">
+          <img src="assets/Светотень/svetoten01.jpg" alt="Урок «Собственная тень», карточка 1">
+          <span class="lesson-card-caption">
+            <p>Поверхность освещается сильнее, когда свет падает более перпендикулярно.</p>
+            <p>Несколько белых картонов ставятся к свету таким образом, чтобы первый из них был перпендикулярен к лучу, а второй, третий и последующие мало-помалу отклонялись бы от него. Последний же картон ставится по направлению луча света. Эта модель весьма ясно показывает постепенность изменения насыщенности теней.</p>
+          </span>
+        </button>
+        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="1" aria-label="Открыть карточку 2 из 5">
+          <img src="assets/Светотень/svetoten02.jpg" alt="Урок «Собственная тень», карточка 2">
+          <span class="lesson-card-caption">
+            <p><strong>Местная (собственная) и падающая тени</strong> различаются между собой тем, что местная находится на самом предмете, а другая падает на него от постороннего тела.</p>
+            <p>Куб, поставленный на столик. Местная тень будет на одной стороне его, если другая освещена, а падающая будет на столике.</p>
+          </span>
+        </button>
+        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="2" aria-label="Открыть карточку 3 из 5">
+          <img src="assets/Светотень/svetoten03.jpg" alt="Урок «Собственная тень», карточка 3">
+          <span class="lesson-card-caption">
+            <p><strong>Полутени</strong> затеняют предмет сильнее или слабее, сообразно величине того угла, под каким падает свет на поверхность предмета.</p>
+            <p>Граненый белый конус, поставленный к свету.</p>
+          </span>
+        </button>
+        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="3" aria-label="Открыть карточку 4 из 5">
+          <img src="assets/Светотень/svetoten04.jpg" alt="Урок «Собственная тень», карточка 4">
+          <span class="lesson-card-caption">
+            <p><strong>Рефлекс или отраженный свет</strong> замечается, когда тело, находящееся в тени, получает слабое освещение от другого освещенного тела.</p>
+            <p>Пример. К картону, находящемуся в тени, надо приближать другой, освещенный, тогда местная (собственная) тень первого сделается светлее. Итак совокупность освещения заключает в себе: свет, полутени, тени, рефлексы и падающую тень.</p>
+          </span>
+        </button>
+        <button class="sphere-gallery-card caption-lesson-card" type="button" data-story-index="4" aria-label="Открыть карточку 5 из 5">
+          <img src="assets/Светотень/svetoten05.jpg" alt="Урок «Собственная тень», карточка 5">
+          <span class="lesson-card-caption">
+            <p>Освещение круглых тел изъясняется точно так же, как и освещение граненого конуса, если грани его будут постепенно уменьшаться, пока не сольются в одну поверхность.</p>
+            <p>Тени на круглых телах гораздо уже, потому что рефлекс здесь не останавливается гранями, а распространяется далее.</p>
+            <p>На круглых металлических полированных телах весьма ясно заметить можно игру света, теней и особенно рефлексов.</p>
+          </span>
+        </button>
+      </section>
+    </main>
+
+    <div class="story-viewer" id="story-viewer" hidden>
+      <section class="story-viewer-panel caption-story-panel" role="dialog" aria-modal="true" aria-label="Просмотр урока Собственная тень в формате stories">
+        <header class="story-header">
+          <h2>Собственная тень</h2>
+          <button class="story-close" type="button" aria-label="Закрыть stories">
+            <img src="assets/ui/story-close.svg" alt="">
+          </button>
+        </header>
+
+        <div class="story-progress" role="progressbar" aria-label="Прогресс просмотра" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+          <span class="story-progress-segment" data-progress-index="0"></span>
+          <span class="story-progress-segment" data-progress-index="1"></span>
+          <span class="story-progress-segment" data-progress-index="2"></span>
+          <span class="story-progress-segment" data-progress-index="3"></span>
+          <span class="story-progress-segment" data-progress-index="4"></span>
+        </div>
+
+        <button class="story-stage caption-story-stage" type="button" aria-label="Перейти к следующей карточке">
+          <img id="story-image" src="assets/Светотень/svetoten01.jpg" alt="Урок «Собственная тень», карточка 1">
+          <span class="story-card-caption" id="story-caption"><p>Поверхность освещается сильнее, когда свет падает более перпендикулярно.</p>
+<p>Несколько белых картонов ставятся к свету таким образом, чтобы первый из них был перпендикулярен к лучу, а второй, третий и последующие мало-помалу отклонялись бы от него. Последний же картон ставится по направлению луча света. Эта модель весьма ясно показывает постепенность изменения насыщенности теней.</p></span>
+        </button>
+      </section>
+    </div>
+
+    <script>
+      (() => {
+        const slides = Array.from(document.querySelectorAll(".caption-lesson-card"));
+        const items = slides.map((slide) => ({
+          src: slide.querySelector("img").src,
+          caption: slide.querySelector(".lesson-card-caption").innerHTML
+        }));
+        const viewer = document.getElementById("story-viewer");
+        const panel = viewer.querySelector(".story-viewer-panel");
+        const stage = viewer.querySelector(".story-stage");
+        const image = document.getElementById("story-image");
+        const caption = document.getElementById("story-caption");
+        const closeButton = viewer.querySelector(".story-close");
+        const progress = Array.from(viewer.querySelectorAll(".story-progress-segment"));
+        const progressBar = viewer.querySelector(".story-progress");
+        let current = 0;
+        let previousFocus = null;
+        let pointerStart = null;
+
+        const render = () => {
+          image.src = items[current].src;
+          image.alt = "Урок «Собственная тень», карточка " + (current + 1);
+          caption.innerHTML = items[current].caption;
+          progressBar.setAttribute("aria-valuenow", String(current + 1));
+          progress.forEach((segment, index) => {
+            segment.classList.toggle("is-complete", index < current);
+            segment.classList.toggle("is-current", index === current);
+          });
+          panel.scrollTop = 0;
+        };
+
+        const openStory = (index) => {
+          current = index;
+          previousFocus = document.activeElement;
+          viewer.hidden = false;
+          document.body.classList.add("story-open");
+          render();
+          closeButton.focus();
+        };
+
+        const closeStory = () => {
+          viewer.hidden = true;
+          document.body.classList.remove("story-open");
+          if (previousFocus) previousFocus.focus();
+        };
+
+        const move = (direction) => {
+          const next = current + direction;
+          if (next < 0) return;
+          if (next >= items.length) {
+            closeStory();
+            return;
+          }
+          current = next;
+          render();
+        };
+
+        slides.forEach((slide, index) => {
+          slide.addEventListener("click", () => openStory(index));
+        });
+
+        closeButton.addEventListener("click", closeStory);
+        viewer.addEventListener("click", (event) => {
+          if (event.target === viewer) closeStory();
+        });
+
+        stage.addEventListener("click", (event) => {
+          const bounds = stage.getBoundingClientRect();
+          move(event.clientX < bounds.left + bounds.width * 0.35 ? -1 : 1);
+        });
+
+        stage.addEventListener("pointerdown", (event) => {
+          pointerStart = event.clientX;
+        });
+
+        stage.addEventListener("pointerup", (event) => {
+          if (pointerStart === null) return;
+          const distance = event.clientX - pointerStart;
+          pointerStart = null;
+          if (Math.abs(distance) > 40) move(distance < 0 ? 1 : -1);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (viewer.hidden) return;
+          if (event.key === "Escape") closeStory();
+          if (event.key === "ArrowRight") move(1);
+          if (event.key === "ArrowLeft") move(-1);
+          if (event.key === "Tab" && !panel.contains(document.activeElement)) {
+            event.preventDefault();
+            closeButton.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
