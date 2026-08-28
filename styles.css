@@ -480,3 +480,27 @@ body.story-open { overflow: hidden; }
   line-height: 1.4;
   letter-spacing: -0.25px;
 }
+
+
+/* Even hatching lesson */
+.hatching-lesson-screen .lesson-title {
+  max-width: 100%;
+  font-size: 36px;
+  line-height: 38px;
+}
+
+.hatching-lesson-screen + .story-viewer .story-header h2 {
+  max-width: calc(100% - 52px);
+  font-size: 28px;
+  line-height: 30px;
+}
+
+.hatching-lesson-screen .sphere-gallery-card,
+.hatching-lesson-screen + .story-viewer .story-stage {
+  height: auto;
+  aspect-ratio: 630 / 893;
+}
+
+.hatching-lesson-screen + .story-viewer .story-stage {
+  flex-basis: auto;
+}
